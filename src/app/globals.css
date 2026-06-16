@@ -4,19 +4,14 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #f5f1ea;
-  --foreground: #181818;
-  --muted: #6b6b6b;
-  --accent-gold: #b89a68;
+  --background: #050403;
+  --foreground: #f7f1e8;
+  --accent-gold: #f2c46d;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; background: var(--background); }
 
 body {
   overflow-x: clip;
@@ -25,11 +20,42 @@ body {
   font-family: "Inter", Arial, sans-serif;
 }
 
-::selection {
-  background: #181818;
-  color: #f5f1ea;
+::selection { background: #f2c46d; color: #080604; }
+
+.font-editorial { font-family: "Cormorant Garamond", Georgia, serif; }
+
+.mist-layer {
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(255, 238, 211, 0.13), transparent 36%),
+    radial-gradient(ellipse at 55% 44%, rgba(228, 166, 91, 0.13), transparent 38%),
+    radial-gradient(ellipse at 82% 58%, rgba(255, 255, 255, 0.1), transparent 34%);
+  filter: blur(28px);
+  animation: mist-drift 26s ease-in-out infinite alternate;
 }
 
-.font-editorial {
-  font-family: "Cormorant Garamond", Georgia, serif;
+.particle-field {
+  background-image:
+    radial-gradient(circle, rgba(255, 229, 188, 0.48) 0 1px, transparent 1.4px),
+    radial-gradient(circle, rgba(255, 255, 255, 0.28) 0 1px, transparent 1.3px);
+  background-size: 120px 120px, 190px 190px;
+  animation: particles-rise 34s linear infinite;
+}
+
+@keyframes mist-drift {
+  from { transform: translate3d(-4%, 2%, 0) scale(1); opacity: 0.42; }
+  to { transform: translate3d(5%, -5%, 0) scale(1.16); opacity: 0.72; }
+}
+
+@keyframes particles-rise {
+  from { background-position: 0 0, 40px 90px; }
+  to { background-position: 0 -900px, 120px -760px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }
