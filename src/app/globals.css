@@ -4,10 +4,10 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #f5f1ea;
-  --foreground: #181818;
-  --muted: #6b6b6b;
-  --accent-gold: #b89a68;
+  --background: #140505;
+  --foreground: #f8f1e8;
+  --muted: #c9b8a8;
+  --accent-gold: #d6a75c;
 }
 
 * {
@@ -20,14 +20,43 @@ html {
 
 body {
   overflow-x: clip;
-  background: var(--background);
   color: var(--foreground);
   font-family: "Inter", Arial, sans-serif;
+
+  background:
+    radial-gradient(circle at 18% 8%, rgba(151, 31, 31, 0.75), transparent 34%),
+    radial-gradient(circle at 42% 58%, rgba(91, 13, 13, 0.82), transparent 46%),
+    radial-gradient(circle at 92% 35%, rgba(0, 0, 0, 0.9), transparent 38%),
+    linear-gradient(135deg, #6f1717 0%, #2b0707 42%, #080202 100%);
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.45) 72%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.16;
+  background-image:
+    repeating-radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.08) 0 1px, transparent 1px 3px);
+  mix-blend-mode: overlay;
 }
 
 ::selection {
-  background: #181818;
-  color: #f5f1ea;
+  background: #d6a75c;
+  color: #140505;
 }
 
 .font-editorial {

@@ -12,7 +12,7 @@ import { Contact } from "@/components/sections/contact";
 export default function Home() {
   return (
     <main>
-      <Navbar />
+<Navbar />
 
       <Hero />
 
